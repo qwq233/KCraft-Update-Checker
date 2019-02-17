@@ -1,8 +1,8 @@
 [
 {
-  "modid": "playsoundtweak",
-  "name": "PlaySound Tweak",
-  "description": "һ�������÷ǹ���Ա��Ҳ�����Ƶ�ĵ�����",
+  "modid": "moecraftupdatechecker",
+  "name": "Update Checker for Moecraft",
+  "description": "这是Moecraft更新检查程序，被设计来避免因登入服务器时未使用最新版客户端导致的各种错误情况。",
   "version": "1.0",
   "mcversion": "1.12",
   "url": "https://zbx1425.bvehmmcn.tk/",

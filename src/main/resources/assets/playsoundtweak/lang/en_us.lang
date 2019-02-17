@@ -1,9 +1,0 @@
-tile.speakerblock.name=LoudSpeaker
-tile.nethercrowblock.name=Portable Wife
-gui.speakerblock.title=PlaySoundTweak™ LoudSpeaker
-gui.speakerblock.credit=Programmed by Zbx1425 (newbieZBX)
-gui.speakerblock.hint=Name of the sound event:
-gui.speakerblock.constvol.nop=Volume([): <X>Ambient < >Constant
-gui.speakerblock.constvol.yes=Volume([): < >Ambient <X>Constant
-gui.speakerblock.longtrig.nop=RSMode(]): <X>Pulse   < >Continuous
-gui.speakerblock.longtrig.yes=RSMode(]): < >Pulse   <X>Continuous

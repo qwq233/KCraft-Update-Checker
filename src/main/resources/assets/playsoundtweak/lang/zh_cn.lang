@@ -1,9 +1,0 @@
-tile.speakerblock.name=放音喇叭
-tile.nethercrowblock.name=便携式乌鸦姐姐
-gui.speakerblock.title=PlaySound 放音喇叭
-gui.speakerblock.credit=编程: Zbx1425 (newbieZBX)
-gui.speakerblock.hint=填入要播放的声音事件名称:
-gui.speakerblock.constvol.nop=音量([): <X>随距改变 < >始终不变
-gui.speakerblock.constvol.yes=音量([): < >随距改变 <X>始终不变
-gui.speakerblock.longtrig.nop=红石(]): <X>脉冲触发 < >持续供能
-gui.speakerblock.longtrig.yes=红石(]): < >脉冲触发 <X>持续供能
