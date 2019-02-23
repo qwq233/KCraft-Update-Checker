@@ -3,7 +3,10 @@ package net.zbx1425.updatechecker;
 import java.io.File;
 import java.nio.file.Path;
 
+import javax.swing.SwingUtilities;
+
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiMainMenu;
@@ -21,17 +24,32 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @EventBusSubscriber
-@Mod(modid = "moecraftupdatechecker", name = "Update Checker for Moecraft", version = "1.0")
+@Mod(modid="moecraftupdatechecker", clientSideOnly = true, useMetadata = true)
 public class Core {
 
 	public static boolean updateCheckComplete;
+	public static boolean forceExit = false;
+	
+	public static GuiDialog gdinstance;
 
-    @SideOnly(Side.CLIENT)
-    @SubscribeEvent
+    /*@SubscribeEvent
     public static void openGui(GuiOpenEvent event) {
         if (event.getGui() instanceof GuiMainMenu && !updateCheckComplete) {
+        	gdinstance.dispose();
             event.setGui(new Gui());
         }
+    }*/
+	
+	@EventHandler
+    public void preInit(FMLPreInitializationEvent event) throws InterruptedException
+    {
+		gdinstance = new GuiDialog();
+		gdinstance.startTask();
+		gdinstance.setVisible(true);
+		if (forceExit) {
+			throw new InterruptedException("游戏需要更新，更新检测程序已中断游戏启动。这是正常现象。\n"
+					+ "The game needs update, so the update checker interrupted the startup progress. THIS IS NORMAL.");
+		}
     }
     
     public static String outboundpath() {
