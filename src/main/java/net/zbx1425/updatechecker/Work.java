@@ -46,7 +46,7 @@ public class Work {
             		if (clientdate.before(remotedate)) {
             			cb.fail(1, "请先使用更新器更新您的游戏，再重新启动。\n最新版本发布时间: "
             					+new SimpleDateFormat("yyyy年MM月dd日 HH:mm").format(remotedate)
-            					+"\n请务必在更新后再进入服务器，否则可能产生各种错误。");
+            					+"\n请务必在更新后再进入服务器，否则可能产生资源失效、显示错乱、无法登入等各种错误。");
             		} else {
             			cb.success();
             		}

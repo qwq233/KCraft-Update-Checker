@@ -43,12 +43,16 @@ public class Core {
 	@EventHandler
     public void preInit(FMLPreInitializationEvent event) throws InterruptedException
     {
-		gdinstance = new GuiDialog();
-		gdinstance.startTask();
-		gdinstance.setVisible(true);
-		if (forceExit) {
-			throw new InterruptedException("游戏需要更新，更新检测程序已中断游戏启动。这是正常现象。\n"
-					+ "The game needs update, so the update checker interrupted the startup progress. THIS IS NORMAL.");
+		if (System.getProperty("moecraft.skipUpdateCheck") == null) {
+			gdinstance = new GuiDialog();
+			gdinstance.startTask();
+			gdinstance.setVisible(true);
+			if (forceExit) {
+				throw new InterruptedException("游戏需要更新，更新检测程序已中断游戏启动。这是正常现象。\n"
+						+ "The game needs update, so the update checker interrupted the startup progress. THIS IS NORMAL.");
+			}
+		} else {
+			event.getModLog().info("Moecraft update check skipped because of VM property given");
 		}
     }
     
