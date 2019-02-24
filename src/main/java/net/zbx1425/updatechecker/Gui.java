@@ -47,6 +47,14 @@ public class Gui extends GuiScreen {
 				text2 = str;
 				updateScreen();
 			}
+
+			@Override
+			public void nwoverride() {
+				Core.updateCheckComplete = true;
+				Minecraft.getMinecraft().addScheduledTask(()->{
+					mc.displayGuiScreen((GuiScreen)null);
+				});
+			}
 			
 		});
 	}

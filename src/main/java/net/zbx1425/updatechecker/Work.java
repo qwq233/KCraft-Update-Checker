@@ -10,6 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
@@ -23,6 +24,7 @@ import net.minecraft.client.Minecraft;
 public class Work {
 	public interface checkerCallback {
 		public void success();
+		public void nwoverride();
 		public void fail(int osp, String str);
 	}
     public static void runtask(final checkerCallback cb){
@@ -53,16 +55,13 @@ public class Work {
             	} catch (FileNotFoundException | NullPointerException e) {
             		e.printStackTrace();
             		cb.fail(2, "您的更新器版本过于老旧！\n请至官网更新。");
-            	} catch (UnsupportedEncodingException | MalformedURLException e) {
-            		cb.fail(3, "更新检测器出现内部错误: \n"+e.getLocalizedMessage()
-            		+"\n请联系管理员。");
-				} catch (IOException e) {
-					cb.fail(3, "检查更新过程中出现错误：\n"+e.getLocalizedMessage()
-					+"\n请检查网络连接后重试。如果故障反复出现，请联系管理员。");
-				} catch (Exception e) {
-					e.printStackTrace();
-					cb.fail(3, "检查更新过程中出现错误：\n"+e.getLocalizedMessage()
-					+"\n请检查网络连接后重试。如果故障反复出现，请联系管理员。");
+            	} catch (UnknownHostException e) {
+            		e.printStackTrace();
+					cb.nwoverride();
+            	} catch (Exception e) {
+            		e.printStackTrace();
+					cb.fail(3, e.toString()
+					+"\n请检查磁盘和网络连接后重试。如果故障反复出现，请联系管理员。");
 				}
             }
         });
