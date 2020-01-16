@@ -52,7 +52,7 @@ public class Core {
 						+ "The game needs update, so the update checker interrupted the startup progress. THIS IS NORMAL.");
 			}
 		} else {
-			event.getModLog().info("Moecraft update check skipped because of VM property given");
+			event.getModLog().info("KCraft update check skipped because of VM property given");
 		}
     }
     

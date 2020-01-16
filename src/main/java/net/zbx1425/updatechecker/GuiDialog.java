@@ -43,7 +43,7 @@ public class GuiDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	int operstp = 0;
 
-	JLabel lblTitle = new JLabel("MoeCraft 更新检测程序");
+	JLabel lblTitle = new JLabel("KCraft 更新检测程序");
 	JLabel lblProgress = new JLabel("请稍等片刻……");
 	JLabel lblDetail = new JLabel("");
 	JButton okButton = new JButton("继续启动（可能造成无法登陆或资源错误）");
@@ -59,7 +59,7 @@ public class GuiDialog extends JDialog {
 		}
 		setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		setAlwaysOnTop(true);
-		setTitle("MoeCraft 更新检测程序");
+		setTitle("KCraft 更新检测程序");
 		setResizable(false);
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setModal(true);
@@ -171,11 +171,8 @@ public class GuiDialog extends JDialog {
 										if (operstp == 1) {
 											Runtime.getRuntime()
 													.exec(new String[] { "java", "-jar",
-															Core.outboundpath() + "/MoeCraft-Toolbox.jar" },
+															Core.outboundpath() + "/KCraft-Toolbox.jar" },
 															new String[] {}, new File(Core.outboundpath()));
-										} else if (operstp == 2) {
-											java.awt.Desktop.getDesktop().browse(
-													new URI("https://accounts.moecraft.net/Doc/Protected/download"));
 										}
 									} catch (IOException | URISyntaxException ex) {
 
@@ -222,7 +219,7 @@ public class GuiDialog extends JDialog {
 				Core.updateCheckComplete = true;
 				lblProgress.setText("网络连接不正常");
 				lblProgress.setForeground(Color.RED);
-				lblDetail.setText("<html>无法连接MoeCraft服务器，请检查重试！<br>如果您这次只游玩单机，您可以直接继续。<br>更新检测程序现在自动关闭。<br>如果故障反复出现，请联系管理员。</html>");
+				lblDetail.setText("<html>无法连接KCraft服务器，请检查重试！<br>如果您这次只游玩单机，您可以直接继续。<br>更新检测程序现在自动关闭。<br>如果故障反复出现，请联系管理员。</html>");
 				repaint();
 				try {
 					Thread.sleep(2000);

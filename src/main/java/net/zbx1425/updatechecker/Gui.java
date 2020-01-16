@@ -64,7 +64,7 @@ public class Gui extends GuiScreen {
     {
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		this.drawWorldBackground(0);
-		this.fontRenderer.drawStringWithShadow("MoeCraft 更新检测程序", 40, 60, -1);
+		this.fontRenderer.drawStringWithShadow("KCraft 更新检测程序", 40, 60, -1);
 		GlStateManager.scale(2, 2, 2);
 		this.fontRenderer.drawStringWithShadow(new String[] {"操作进行中","请更新游戏","请更新更新器","错误"}[operstp],
 				20, 35, ((operstp>0) ? 0x00FF0000 : -1));
@@ -105,7 +105,7 @@ public class Gui extends GuiScreen {
 		if (operstp>0 && (keyCode == 28 || keyCode == 156)) {
 			switch (operstp) {
 			case 1:
-				Runtime.getRuntime().exec(new String[]{"java","-jar",Core.outboundpath()+"/MoeCraft-Toolbox.jar"},new String[]{}, new File(Core.outboundpath()));
+				Runtime.getRuntime().exec(new String[]{"java","-jar",Core.outboundpath()+"/KCraft-Toolbox.jar"},new String[]{}, new File(Core.outboundpath()));
 				break;
 			case 2:
 				try{
